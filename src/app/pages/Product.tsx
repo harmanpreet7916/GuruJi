@@ -66,7 +66,7 @@ export default function ProductPage() {
                 <input
                     className="searchBar w-full md:w-2/3 lg:w-1/2 border border-zinc-950 px-4 py-2 rounded-3xl shadow md:shadow-lg hover:border-neutral-50"
                     type="text"
-                    placeholder="I am suffering from diabetes but I also have back pain..."
+                    placeholder="Explain your health issue here..."
                     value={diseaseDescription}
                     onChange={(e) => setDiseaseDescription(e.target.value)}
                     onKeyDown={(e) => {
