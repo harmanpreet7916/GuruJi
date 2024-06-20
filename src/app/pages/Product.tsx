@@ -85,7 +85,7 @@ export default function ProductPage() {
                     {isLoading ? 'Loading...' : 'Search'}
                 </button>
                 {selectedPhoto && (
-                    <div className={`inset-0 flex justify-center items-center w-full h-full z-0 ${fadeClass}`}>
+                    <div className={`inset-0 flex justify-center items-center w-full h-full -z-0 ${fadeClass}`}>
                         <HoveringDetailedCard
                             PoseName={selectedPhoto.PoseName}
                             PoseDescription={selectedPhoto.PoseDescription}

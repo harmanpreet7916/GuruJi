@@ -4,13 +4,13 @@ import foto from './sitting.jpg'
 
 export default function HoveringDetailedCard({ PoseName, PoseDescription, PoseSteps, Precautions, Benefits, closeModal }: any) {
     return (
-        <div className=" p-4 rounded h-2/3 w-2/3 object-contain bg-purple-500 bg-opacity-30 backdrop-blur-lg ">
+        <div className=" p-4 rounded w-full md:h-2/3 md:w-2/3 object-contain bg-green-500 bg-opacity-30 backdrop-blur-lg z-0 ">
             <div className="flex justify-between">
-                <h1 className="text-xl font-bold">{PoseName}</h1>
+                <h1 className="text-xl font-bold text-white">{PoseName}</h1>
                 <button onClick={closeModal} className="text-red-500 text-xl font-bold">X</button>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 p-4  bg-white ">
+            <div className="grid grid-col-1 md:grid-cols-2 gap-4 p-4  bg-white z-10 ">
                 {/* Left Column */}
 
                 <div className="flex flex-col">
