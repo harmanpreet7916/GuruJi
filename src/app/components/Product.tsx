@@ -66,7 +66,7 @@ export default function ProductPage() {
   };
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-gray-100 p-4 mt-4">
+    <div className="flex flex-col items-center min-h-screen bg-gray-100 p-4 mt-10 md:mt-4 ">
       <h1 className="flex justify-center mb-4">
         <Image src={HeroImage} alt="yoga" className="w-1/2 h-1/2 md:w-1/2 md:h-1/2 inline-block" />
       </h1>
