@@ -1,16 +1,34 @@
-import Navbar from './components/Navbar';
-import ProductPage from './pages/Product';
-export default function Home() {
+// src/app/page.tsx
 
+import Navbar from './components/Navbar';
+import ProductPage from './components/Product';
+
+export default function Home() {
   return (
-    <main className=" w-screen min-h-screen  items-center justify-between bg-black  from-[#a0fabd] via-[#42a966] to-[#02c14b]">
-      <div className='w-full flex   p-3  sticky '>
-        
+    <main className="w-screen min-h-screen flex flex-col items-center bg-gray-100">
+      <div className='sticky top-0 z-50 w-full '>
         <Navbar />
       </div>
-      <div className='w-full mt-5 overflow-x-hidden'>
+      <div className='flex-grow overflow-x-hidden w-full '>
         <ProductPage />
       </div>
     </main>
   );
 }
+
+
+// import Navbar from './components/Navbar';
+// import ProductPage from './components/Product';
+// export default function Home() {
+
+//   return (
+//     <main className=" w-screen min-h-screen items-center justify-between bg-gray-500">
+//       <div className='sticky top-0 '>
+//         <Navbar />
+//       </div>
+//       <div className='overflow-x-hidden w-full overflow-hidden'>
+//         <ProductPage />
+//       </div>
+//     </main>
+//   );
+// }

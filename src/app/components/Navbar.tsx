@@ -1,42 +1,109 @@
-// write react js code for navbar component
+"use client"
+import Link from 'next/link';
+import React, { useState } from 'react';
 
-import Image from 'next/image'
-import React from 'react'
-import foto from './sitting.jpg'
-export default function Navbar() {
+const Navbar: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <div >
-      <nav className="bg-[#d3ffe4] bg-opacity-30 backdrop-blur-lg  fixed top-0 left-0 right-0 z-500">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <Image className="h-8 w-8" src={foto} alt="Logo" />
-            </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <a href="#" className="text-gray-900 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                <a href="https://www.linkedin.com/in/harmanpreetsingh0013/?original_referer=https%3A%2F%2Fwww%2Egoogle%2Ecom%2F&originalSubdomain=in" target='_blank' className="text-gray-900 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">About</a>
-                <a href="mailto:harmanpreetgirn@gmail.com" target='_blank' className="text-gray-900 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
-                {/* <a href="#" className="text-gray-900 hover:text-gray-700 px-3 py-2 rounded-md text-sm font-medium">Services</a> */}
-              </div>
-            </div>
+    <div>
+      <nav className="fixed top-0 left-0 w-full  text-black p-4 bg-opacity-30 backdrop-blur-lg z-50">
+        <div className="container mx-auto flex justify-between items-center">
+          <div className="text-2xl font-bold">YogGuru</div>
+          
+          <div className="hidden md:flex space-x-4">
+            <Link href="/" className="hover:text-gray-600">HOME</Link>
+            {/* <Link href="/Login" className="hover:text-gray-600">SERVICES</Link> */}
+            <Link href="https://www.linkedin.com/in/harmanpreetsingh0013/?original_referer=https%3A%2F%2Fwww%2Egoogle%2Ecom%2F&originalSubdomain=in" className="hover:text-gray-600">ABOUT</Link>
+            <Link href="mailto:harmanpreetgirn@gmail.com" className="hover:text-gray-600">CONTACT</Link>
+            {/* <Link href="/login" className="hover:text-gray-600">LOGIN</Link>
+            <Link href="/signup" className="hover:text-gray-600">SIGN UP</Link> */}
           </div>
-          <div className="hidden md:block">
-            <div className="ml-4 flex items-center md:ml-6">
-              <button className="bg-[#00ca41] text-white px-3 py-2 rounded-md text-sm font-medium">Sign In</button>
-            </div>
-          </div>
-          <div className="-mr-2 flex md:hidden">
-            <button className="bg-gray-800 text-white inline-flex items-center justify-center p-2 rounded-md focus:outline-none">
-              <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+
+          <div className="md:hidden">
+            <button onClick={toggleMenu} className="focus:outline-none">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                {isMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                )}
               </svg>
             </button>
           </div>
         </div>
-      </div>
-    </nav>
+
+        {isMenuOpen && (
+          <div className="md:hidden mt-4 animate-slide-down transition-all duration-300 ease-in-out">
+            <Link href="/" className="block py-2 hover:text-gray-600">HOME</Link>
+            {/* <Link href="/" className="block py-2 hover:text-gray-600">SERVICES</Link> */}
+            <Link href="https://www.linkedin.com/in/harmanpreetsingh0013/?original_referer=https%3A%2F%2Fwww%2Egoogle%2Ecom%2F&originalSubdomain=in" className="block py-2 hover:text-gray-600">ABOUT</Link>
+            <Link href="mailto:harmanpreetgirn@gmail.com" className="block py-2 hover:text-gray-600">CONTACT</Link>
+            {/* <Link href="/login" className="block py-2 hover:text-gray-600">LOGIN</Link>
+            <Link href="/signup" className="block py-2 hover:text-gray-600">SIGN UP</Link> */}
+          </div>
+        )}
+      </nav>
     </div>
-  )
+  );
 }
+
+export default Navbar;
+
+
+// "use client"
+// import Link from 'next/link'
+// import React, { useState } from 'react'
+
+// const Navbar: React.FC = () => {
+//   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+//   const toggleMenu = () => {
+//     setIsMenuOpen(!isMenuOpen);
+//   };
+
+//   return (
+//     <div>
+//       <nav className="bg-gray-900 text-white p-4 bg-opacity-30 backdrop-blur-lg animate-slide-down transition-all duration-300 ease-in-out">
+//         <div className="container mx-auto flex justify-between items-center">
+//           <div className="text-2xl font-bold">GuruYog</div>
+          
+//           <div className="hidden md:flex space-x-4">
+//             <Link href="/" className="hover:text-gray-400">HOME</Link>
+//             <Link href="/services" className="hover:text-gray-400">SERVICES</Link>
+//             <Link href="https://www.linkedin.com/in/harmanpreetsingh0013/?original_referer=https%3A%2F%2Fwww%2Egoogle%2Ecom%2F&originalSubdomain=in" className="hover:text-gray-400">ABOUT</Link>
+//             <Link href="mailto:harmanpreetgirn@gmail.com" className="hover:text-gray-400">CONTACT</Link>
+//           </div>
+
+//           <div className="md:hidden">
+//             <button onClick={toggleMenu} className="focus:outline-none">
+//               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+//                 {isMenuOpen ? (
+//                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+//                 ) : (
+//                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+//                 )}
+//               </svg>
+//             </button>
+//           </div>
+//         </div>
+
+//         {isMenuOpen && (
+//           <div className="md:hidden mt-4 animate-slide-down transition-all duration-300 ease-in-out">
+//             <Link href="/" className="block py-2 hover:text-gray-400">HOME</Link>
+//             <Link href="/services" className="block py-2 hover:text-gray-400">SERVICES</Link>
+//             <Link href="https://www.linkedin.com/in/harmanpreetsingh0013/?original_referer=https%3A%2F%2Fwww%2Egoogle%2Ecom%2F&originalSubdomain=in" className="block py-2 hover:text-gray-400">ABOUT</Link>
+//             <Link href="mailto:harmanpreetgirn@gmail.com" className="block py-2 hover:text-gray-400">CONTACT</Link>
+//             <Link href="/career" className="block py-2 hover:text-gray-400">CAREER</Link>
+//           </div>
+//         )}
+//       </nav>
+//     </div>
+//   )
+// }
+
+// export default Navbar;
