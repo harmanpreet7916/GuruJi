@@ -20,9 +20,9 @@ const montserrat = Montserrat({
 
 export default function HoveringDetailedCard({ PoseName, PoseDescription, PoseSteps, Precautions, Benefits, closeModal, imageUrl }: any) {
     return (
-        <div className="fixed inset-0 flex justify-center items-center bg-black  px-5 backdrop-blur-lg bg-opacity-25">
+        <div className="fixed inset-0 flex justify-center items-center bg-black  px-5 backdrop-blur-lg bg-opacity-25 ">
             {/* <div className="relative bg-[#0d0d0d] text-white rounded-lg w-11/12 md:w-full lg:w-full max-h-full overflow-auto p-1 "> */}
-            <div className="relative bg-[#0d0d0d] text-white rounded-lg w-11/12 md:w-full lg:w-full max-h-full overflow-auto bg-opacity-70 p-2">
+            <div className="relative bg-[#0d0d0d] text-white rounded-lg w-11/12 md:w-full lg:w-full max-h-full overflow-auto bg-opacity-70 p-2 mt-32 md:mt-0">
                 {/* <div className="relative bg-white rounded-lg w-11/12 md:w-4/5 lg:w-1/2 max-h-full overflow-auto p-1"> */}
                 <div className="flex justify-between items-center mb-4">
                     <h1 className="ml-5 text-xl font-bold text-white">{PoseName}</h1>

@@ -1,6 +1,6 @@
 "use client"
 import { useState } from 'react';
-
+//dummy component to test the api
 export default function Homes() {
   const [poseName, setPoseName] = useState('');
   const [imageUrl, setImageUrl] = useState(null);

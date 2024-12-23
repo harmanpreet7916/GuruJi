@@ -12,7 +12,7 @@ export async function POST(req: Request, res: Response) {
         const prompt = `I am suffering from "${diseaseDescription}". Suggest 6 yoga poses that can cure my health problem. The suggested poses should take into account every aspect of my health issue, tailored to my mentioned body condition. List names of yoga poses in the following parsable JSON format:
         [
             {
-                "PoseName": "Yoga pose Name",
+                "PoseName": "Yoga pose Name in english lower case without special character",
                 "PoseDescription": "basic description of the pose and why it is good for this case",
                 "PoseSteps":  ["1st step", "2nd step", "nth step"],
                 "Precautions": ["precaution1", "precaution2", "precaution-n"],

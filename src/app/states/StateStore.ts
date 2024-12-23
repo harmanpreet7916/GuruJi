@@ -6,6 +6,7 @@ interface YogaPose {
   PoseSteps: string[];
   Precautions: string[];
   Benefits: string[];
+  url:string;
 }
 
 type Store = {
