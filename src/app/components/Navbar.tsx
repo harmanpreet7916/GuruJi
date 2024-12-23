@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
 
   return (
     <div>
-      <nav className="fixed top-0 left-0 w-full  text-black p-4 bg-opacity-30 backdrop-blur-lg z-50">
+      <nav className="fixed top-0 left-0 w-full  text-black p-4 bg-opacity-30 backdrop-blur-lg">
         <div className="container mx-auto flex justify-between items-center">
           <div className="text-2xl font-bold">YogGuru</div>
           

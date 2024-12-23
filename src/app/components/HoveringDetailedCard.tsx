@@ -2,59 +2,80 @@
 import Image from 'next/image';
 import React from 'react';
 import foto from './sitting.jpg';
+import { Inter, Roboto, Montserrat } from 'next/font/google'
+import { auto } from 'openai/_shims/registry.mjs';
+const inter = Inter({ subsets: ['latin'] })
+const roboto = Roboto({
+    weight: ['400', '700'],
+    style: ['normal', 'italic'],
+    subsets: ['latin'],
+    display: 'swap',
+})
+const montserrat = Montserrat({
+    weight: ['400', '700'],
+    style: ['normal', 'italic'],
+    subsets: ['latin'],
+    display: 'swap',
+})
 
-export default function HoveringDetailedCard({ PoseName, PoseDescription, PoseSteps, Precautions, Benefits, closeModal }: any) {
+export default function HoveringDetailedCard({ PoseName, PoseDescription, PoseSteps, Precautions, Benefits, closeModal, imageUrl }: any) {
     return (
-        <div className="fixed inset-0 z-40 flex justify-center items-center bg-black bg-opacity-70 backdrop-blur-lg py-20 px-0">
-            <div className="relative bg-white rounded-lg w-11/12 md:w-4/5 lg:w-1/2 max-h-full overflow-auto p-1">
+        <div className="fixed inset-0 flex justify-center items-center bg-black  px-5 backdrop-blur-lg bg-opacity-25">
+            {/* <div className="relative bg-[#0d0d0d] text-white rounded-lg w-11/12 md:w-full lg:w-full max-h-full overflow-auto p-1 "> */}
+            <div className="relative bg-[#0d0d0d] text-white rounded-lg w-11/12 md:w-full lg:w-full max-h-full overflow-auto bg-opacity-70 p-2">
+                {/* <div className="relative bg-white rounded-lg w-11/12 md:w-4/5 lg:w-1/2 max-h-full overflow-auto p-1"> */}
                 <div className="flex justify-between items-center mb-4">
-                    <h1 className="text-xl font-bold text-black">{PoseName}</h1>
+                    <h1 className="ml-5 text-xl font-bold text-white">{PoseName}</h1>
                     <button onClick={closeModal} className="text-red-500 text-xl font-bold">X</button>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {/* Left Column */}
-                    <div className="flex flex-col">
-                        <div className="mb-2">
-                            <Image src={foto} alt={PoseName} className="object-cover rounded-lg w-full h-64 md:h-80 lg:h-96" />
-                        </div>
-                        <div className="text-gray-700 text-base mb-4">
-                            <div className="mb-4">
-                                <h1 className="text-l font-bold mb-2">Benefits:</h1>
-                                <ul className="list-disc list-inside">
-                                    {Benefits.map((benefit: string, index: number) => (
-                                        <li className='italic text-green-500' key={index}>{benefit}</li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
+                    <div className="flex flex-col bg-[#1a1a1a] bg-opacity-50 uppercase text-gray-800 border-b-2 border-gray-900 rounded-lg  p-1 lg:col-span-1 md:col-span-1 justify-center content-center">
+                        {/* <div className=" bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-lg  p-1 flex content-center justify-center"> */}
+                        <Image src={imageUrl? imageUrl:foto}
+                        alt={PoseName} width={5000} height={5000} className="object-cover w-auto h-64 md:h-80 lg:h-auto max-h-full p-1" />
+
                     </div>
                     {/* Right Column */}
-                    <div className="flex flex-col">
-                        <div className="flex-grow  bg-opacity-50 p-0 mb-1 rounded-lg">
-                            <h1 className="text-base font-bold mb-2">Description:</h1>
-                            <div className='mb-2' >
+                    <div className="flex flex-col lg:col-span-2 md:col-span-2">
+                        <div className="flex-grow  bg-opacity-50  mb-1 rounded-lg p-2">
+                            <h1 className="text-lg font-bold mb-2 text-[#e8e8e8] ">Description:</h1>
+                            <div className={`'mb-2 text-[#9b958c] ${montserrat.className}'`} >
                                 {PoseDescription}
                             </div>
-                            <h1 className="text-xl font-bold mb-2">Follow These Steps:</h1>
-                            <ul className="text-gray-700 text-base list-disc list-inside">
+                            <h1 className="text-lg font-bold mb-2 text-[#e8e8e8]">How To Do?</h1>
+                            <ul className={`text-base list-disc px-3 text-[#9b958c] ${roboto.className}`}>
                                 {PoseSteps.map((step: string, index: number) => (
                                     <li key={index}>{step}</li>
                                 ))}
                             </ul>
                         </div>
-                        <div className="p-0 rounded-lg">
-
-                            {Precautions && Precautions.length > 0 &&
-                                <div>
-                                    <h1 className="text-l font-bold mb-2">Precautions<span className='text-red-500'>*</span>:</h1>
-                                    <ul className="list-disc list-inside">
-                                        {Precautions.map((precaution: string, index: number) => (
-                                            <li key={index}>{precaution}</li>
+                        <div className='w-full grid grid-cols-1 md:grid-cols-2 gap-2'>
+                            <div className="text-base mb-4 h-full bg-[#1a1a1a] bg-opacity-50 border-b-4 border-[#262626] rounded-lg shadow-xl p-5 col-span-1">
+                                <div className="mb-4 ">
+                                    <h1 className="text-l font-bold mb-2 ">Benefits:</h1>
+                                    <ul className="list-disc ">
+                                        {Benefits.map((benefit: string, index: number) => (
+                                            <li className={`${montserrat.className}  text-[#9b958c]`} key={index}>{benefit}</li>
                                         ))}
                                     </ul>
                                 </div>
-                            }
+                            </div>
+                            <div className="p-5 rounded-lg bg-[#1a1a1a] bg-opacity-50 border-b-4 border-[#262626] shadow-xl h-full col-span-1">
+
+                                {Precautions && Precautions.length > 0 &&
+                                    <div>
+                                        <h1 className="text-l font-bold mb-2 ">Precautions:</h1>
+                                        <ul className="list-disc list ">
+                                            {Precautions.map((precaution: string, index: number) => (
+                                                <li className={`${montserrat.className}  text-[#9b958c]`} key={index}>{precaution}</li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                }
+                            </div>
+
                         </div>
                     </div>
                 </div>

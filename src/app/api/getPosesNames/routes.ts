@@ -5,8 +5,5 @@ export async function POST(req: Request) {
     console.log(input)
 
 
-
-
-
     return new Response("stream")
 }
